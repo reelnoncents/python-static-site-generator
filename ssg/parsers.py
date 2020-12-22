@@ -5,7 +5,7 @@ import shutil
 
 class Parser:
     
-    extensions : List[str] = []
+    extensions: List[str] = []
 
     def valid_extension(self, extension):
         return extension in self.extensions
@@ -19,7 +19,6 @@ class Parser:
 
     def write(self, path, dest, content, ext=".html"):
         full_path = dest / path.with_suffix(ext).name
-
         with open(full_path, 'w') as file:
             file.write(content)
 
@@ -31,5 +30,5 @@ class ResourceParser(Parser):
 
     extensions = [".jpg", ".png", ".gif", ".css",  ".html"]
 
-    def parse(self, path: Path, source: Path, dest: Path):
+    def parse(self, path, source, dest):
         super().copy(path, source, dest)
